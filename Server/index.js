@@ -24,7 +24,6 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-
 const dbUri = process.env.MONGO_DB;
 
 async function connect() {
