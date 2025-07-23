@@ -50,3 +50,12 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
   res.send('API is running 🚀');
 });
+
+import path from 'path';  // nếu đang dùng ES6
+const __dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
