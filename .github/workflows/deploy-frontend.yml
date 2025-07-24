@@ -36,7 +36,8 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: "client/build/*"
           target: "/tmp/frontend-build"
-
+          debug: true 
+          
       - name: Deploy to Nginx folder
         uses: appleboy/ssh-action@v1.0.0
         with:
