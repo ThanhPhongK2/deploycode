@@ -28,6 +28,11 @@ jobs:
           cd client
           npm run build
 
+       - name: Build frontend
+        run: |
+          cd client
+          CI=false npm run build
+
       - name: Copy files to remote server via SSH
         uses: appleboy/scp-action@v0.1.7
         with:
