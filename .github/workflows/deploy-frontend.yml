@@ -3,7 +3,7 @@ name: Deploy Frontend to Nginx Server
 on:
   push:
     branches:
-      - main  # hoặc branch bạn muốn deploy
+      - main
 
 jobs:
   deploy:
@@ -26,12 +26,7 @@ jobs:
       - name: Build frontend
         run: |
           cd client
-          npm run build
-
-       - name: Build frontend
-        run: |
-          cd client
-          CI=false npm run build
+          CI=false npm run build  # ✅ Dùng CI=false để bỏ qua warning khi build
 
       - name: Copy files to remote server via SSH
         uses: appleboy/scp-action@v0.1.7
